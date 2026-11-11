@@ -1,0 +1,105 @@
+{% load static i18n %}<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Escale — {% translate "Romantic city escapes, privately priced" %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% translate "Members-only sales on the most romantic boutique hotels in Moscow and St Petersburg." %}{% endblock %}">
+  <link rel="alternate" hreflang="ru" href="{{ request.scheme }}://{{ request.get_host }}{{ lang_urls.ru }}">
+  <link rel="alternate" hreflang="en" href="{{ request.scheme }}://{{ request.get_host }}{{ lang_urls.en }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231d1a18'/><text x='50' y='70' font-size='62' text-anchor='middle' fill='%23a88b5c' font-family='Georgia'>E</text></svg>">
+</head>
+<body class="min-h-screen">
+
+  {# ---------- Announcement bar ---------- #}
+  <div class="bg-ink px-4 py-2 text-center text-[11px] tracking-[0.18em] text-ivory/80 uppercase">
+    {% translate "Members-only rates · up to −45% · free cancellation on most stays" %}
+  </div>
+
+  {# ---------- Header ---------- #}
+  <header class="sticky top-0 z-40 border-b border-ink/10 bg-ivory/90 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
+      <a href="{% url 'stays:home' %}" class="font-serif text-2xl tracking-[0.35em] md:text-3xl">ESCALE</a>
+
+      <nav class="hidden items-center gap-9 text-[12px] font-medium uppercase tracking-[0.18em] md:flex">
+        <a href="{% url 'stays:list' %}" class="hover:text-gold">{% translate "All escapes" %}</a>
+        {% for d in nav_destinations %}
+          <a href="{{ d.get_absolute_url }}" class="hover:text-gold">{{ d.t.name }}</a>
+        {% endfor %}
+        <a href="{% url 'stays:about' %}" class="hover:text-gold">{% translate "Our story" %}</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="flex items-center text-[11px] font-semibold tracking-[0.15em]">
+          <a href="{{ lang_urls.ru }}" class="px-1.5 py-1 {% if lang == 'ru' %}text-ink underline underline-offset-4{% else %}text-taupe hover:text-ink{% endif %}" hreflang="ru">RU</a>
+          <span class="text-ink/20">|</span>
+          <a href="{{ lang_urls.en }}" class="px-1.5 py-1 {% if lang == 'en' %}text-ink underline underline-offset-4{% else %}text-taupe hover:text-ink{% endif %}" hreflang="en">EN</a>
+        </div>
+        <a href="{% url 'stays:home' %}#club" class="btn-dark hidden !px-5 !py-2.5 md:inline-flex">{% translate "Join the club" %}</a>
+
+        {# Mobile menu, no JavaScript needed #}
+        <details class="group md:hidden">
+          <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center [&::-webkit-details-marker]:hidden" aria-label="{% translate 'Menu' %}">
+            <span class="block h-px w-6 bg-ink shadow-[0_6px_0_#1d1a18,0_-6px_0_#1d1a18] group-open:rotate-45 group-open:shadow-none"></span>
+          </summary>
+          <div class="absolute inset-x-0 top-full border-b border-ink/10 bg-ivory px-6 pb-8 pt-4 shadow-lg">
+            <nav class="flex flex-col divide-y divide-ink/10 font-serif text-2xl">
+              <a href="{% url 'stays:list' %}" class="py-3">{% translate "All escapes" %}</a>
+              {% for d in nav_destinations %}<a href="{{ d.get_absolute_url }}" class="py-3">{{ d.t.name }}</a>{% endfor %}
+              <a href="{% url 'stays:about' %}" class="py-3">{% translate "Our story" %}</a>
+            </nav>
+            <a href="{% url 'stays:home' %}#club" class="btn-dark mt-6 w-full">{% translate "Join the club" %}</a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  {% if messages %}
+    <div class="mx-auto max-w-7xl px-4 pt-6 md:px-8">
+      {% for m in messages %}
+        <div class="border-l-2 {% if m.tags == 'error' %}border-wine{% else %}border-gold{% endif %} bg-white px-5 py-4 text-sm">{{ m }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <main>{% block content %}{% endblock %}</main>
+
+  {# ---------- Footer ---------- #}
+  <footer class="mt-24 bg-ink text-ivory/80">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 md:grid-cols-4 md:px-8">
+      <div class="md:col-span-2">
+        <p class="font-serif text-3xl tracking-[0.35em] text-ivory">ESCALE</p>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-ivory/60">
+          {% translate "Hand-picked boutique hotels for romantic city weekends with your partner or your best friends. Every stay tested by our team, every rate reserved for members." %}
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow mb-5">{% translate "Destinations" %}</p>
+        <ul class="space-y-3 text-sm">
+          {% for d in nav_destinations %}<li><a class="hover:text-gold" href="{{ d.get_absolute_url }}">{{ d.t.name }}</a></li>{% endfor %}
+          <li><a class="hover:text-gold" href="{% url 'stays:list' %}">{% translate "All escapes" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow mb-5">{% translate "Escale" %}</p>
+        <ul class="space-y-3 text-sm">
+          <li><a class="hover:text-gold" href="{% url 'stays:about' %}">{% translate "Our story" %}</a></li>
+          <li><a class="hover:text-gold" href="mailto:concierge@escale.example">{% translate "Concierge" %} · concierge@escale.example</a></li>
+          <li class="text-ivory/50">{% translate "Every day, 9:00–21:00 (Moscow time)" %}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-ivory/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-[11px] uppercase tracking-[0.15em] text-ivory/40 md:flex-row md:justify-between md:px-8">
+        <span>© {% now "Y" %} Escale</span>
+        <span>{% translate "Demo site · hotels and prices are fictional" %}</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

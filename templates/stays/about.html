@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Our story" %} — Escale{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-3xl px-4 pt-20 text-center md:pt-28">
+  <p class="eyebrow">{% translate "Our story" %}</p>
+  <h1 class="display mt-4 text-5xl md:text-7xl">{% translate "The art of the" %} <em class="font-normal">{% translate "city escape" %}</em></h1>
+  <p class="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-ink/80">
+    {% translate "Escale was born from a simple idea: the most beautiful weekends are often just a train ride away. A suite above the Neva, breakfast at Patriarch's Ponds, a spa evening with your best friend — no long-haul flight needed." %}
+  </p>
+</section>
+
+<section class="mx-auto mt-20 grid max-w-6xl gap-2 px-4 md:grid-cols-3 md:px-8">
+  <img src="https://images.unsplash.com/photo-1556610961-2fecc5927173?auto=format&fit=crop&w=900&q=80" alt="" class="aspect-[3/4] w-full object-cover">
+  <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80" alt="" class="aspect-[3/4] w-full object-cover md:mt-16">
+  <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=900&q=80" alt="" class="aspect-[3/4] w-full object-cover">
+</section>
+
+<section class="mx-auto mt-20 grid max-w-5xl gap-12 px-4 md:grid-cols-2 md:px-8">
+  <div>
+    <h2 class="font-serif text-3xl">{% translate "Curated, never crowded" %}</h2>
+    <p class="mt-4 leading-relaxed text-ink/75">{% translate "We select only a handful of hotels each season. Each one is visited incognito by our team, and we only keep the addresses we would recommend to our own friends." %}</p>
+  </div>
+  <div>
+    <h2 class="font-serif text-3xl">{% translate "Rates you won't find elsewhere" %}</h2>
+    <p class="mt-4 leading-relaxed text-ink/75">{% translate "We negotiate short private sales directly with hotels, with extras included: champagne, upgrades, late check-out. Members get them first." %}</p>
+  </div>
+</section>
+
+{% include "partials/club.html" %}
+{% endblock %}

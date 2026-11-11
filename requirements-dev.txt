@@ -1,0 +1,3 @@
+-r requirements.txt
+pytailwindcss==0.4.2   # Tailwind CLI (downloads the standalone binary on first run)
+polib==1.2.0           # only for editing translations from scripts

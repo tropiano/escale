@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load i18n escale %}
+
+{% block content %}
+
+{# ---------- Hero ---------- #}
+<section class="relative">
+  <div class="relative bg-ink h-[78vh] max-h-[760px] min-h-[560px] overflow-hidden md:h-[86vh] md:max-h-[820px]">
+    <img src="{{ hero.image_url|default:'' }}" alt="{{ hero.t.hotel_name }}" class="h-full w-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/20 to-ink/75"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent"></div>
+
+    <div class="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-32 md:px-8 md:pb-40">
+      <p class="eyebrow !text-blush">{% translate "Private sales · Moscow & St Petersburg" %}</p>
+      <h1 class="display mt-4 max-w-3xl text-5xl text-ivory md:text-7xl lg:text-8xl">
+        {% translate "Romantic city weekends," %}<br><em class="font-normal">{% translate "privately priced" %}</em>
+      </h1>
+      <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-ivory/85 md:text-lg">
+        {% translate "Boutique hotels we have tested ourselves, for two or with your best friends. Up to 45% off public rates, members only." %}
+      </p>
+    </div>
+  </div>
+
+  {# Search panel overlapping the hero, like the Figma / staycation layout #}
+  <div class="relative z-10 mx-auto -mt-20 max-w-5xl px-4 md:px-8">
+    <form action="{% url 'stays:list' %}" method="get" class="grid gap-px bg-ink/10 shadow-2xl shadow-ink/10 md:grid-cols-[1fr_1fr_auto]">
+      <label class="block bg-white px-6 py-4">
+        <span class="block text-[10px] font-semibold uppercase tracking-[0.2em] text-taupe">{% translate "Where" %}</span>
+        <select name="city" class="mt-1 w-full bg-transparent font-serif text-xl outline-none">
+          <option value="">{% translate "All cities" %}</option>
+          {% for d in destinations %}<option value="{{ d.slug }}">{{ d.t.name }}</option>{% endfor %}
+        </select>
+      </label>
+      <label class="block bg-white px-6 py-4">
+        <span class="block text-[10px] font-semibold uppercase tracking-[0.2em] text-taupe">{% translate "With whom" %}</span>
+        <select name="mood" class="mt-1 w-full bg-transparent font-serif text-xl outline-none">
+          <option value="">{% translate "Any escape" %}</option>
+          {% for value, label in moods %}<option value="{{ value }}">{{ label }}</option>{% endfor %}
+        </select>
+      </label>
+      <button class="btn-dark !py-5 md:!px-10">{% translate "Find my escape" %}</button>
+    </form>
+  </div>
+</section>
+
+{# ---------- Promises ---------- #}
+<section class="mx-auto mt-16 grid max-w-6xl gap-10 px-4 text-center md:mt-20 md:grid-cols-3 md:px-8">
+  <div>
+    <p class="font-serif text-2xl">{% translate "Tested incognito" %}</p>
+    <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Our team sleeps in every hotel before it joins the collection." %}</p>
+  </div>
+  <div class="md:border-x md:border-ink/10">
+    <p class="font-serif text-2xl">{% translate "Members-only rates" %}</p>
+    <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Negotiated directly with the hotels, never shown publicly." %}</p>
+  </div>
+  <div>
+    <p class="font-serif text-2xl">{% translate "Little extras, always" %}</p>
+    <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Champagne, late check-out, an upgrade — every stay has its touch." %}</p>
+  </div>
+</section>
+
+{# ---------- Current sales ---------- #}
+<section class="mx-auto mt-24 max-w-7xl px-4 md:mt-32 md:px-8">
+  <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p class="eyebrow">{% translate "This week's private sales" %}</p>
+      <h2 class="display mt-3 text-4xl md:text-5xl">{% translate "Escapes of the moment" %}</h2>
+    </div>
+    <a href="{% url 'stays:list' %}" class="btn-outline self-start md:self-auto">{% translate "See all escapes" %}</a>
+  </div>
+  <div class="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+    {% for escape in featured %}{% include "partials/escape_card.html" %}{% endfor %}
+  </div>
+</section>
+
+{# ---------- Moods ---------- #}
+<section class="mt-28 bg-sand py-20 md:mt-36 md:py-28">
+  <div class="mx-auto max-w-7xl px-4 md:px-8">
+    <div class="text-center">
+      <p class="eyebrow">{% translate "Choose your mood" %}</p>
+      <h2 class="display mt-3 text-4xl md:text-5xl">{% translate "Who are you escaping with?" %}</h2>
+    </div>
+    <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+      {% for value, label in moods %}
+        <a href="{% url 'stays:list' %}?mood={{ value }}" class="group relative block aspect-[3/4] overflow-hidden">
+          {% if value == "romantic" %}<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" class="img-zoom h-full w-full object-cover">
+          {% elif value == "friends" %}<img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" class="img-zoom h-full w-full object-cover">
+          {% elif value == "spa" %}<img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" class="img-zoom h-full w-full object-cover">
+          {% else %}<img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" class="img-zoom h-full w-full object-cover">{% endif %}
+          <div class="absolute inset-0 bg-ink/35 transition group-hover:bg-ink/45"></div>
+          <div class="absolute inset-x-0 bottom-0 p-5 text-ivory md:p-7">
+            <p class="font-serif text-2xl md:text-3xl">{{ label }}</p>
+            <p class="mt-1 text-[11px] uppercase tracking-[0.2em] text-ivory/75">{% translate "Discover" %} →</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---------- Destinations ---------- #}
+<section class="mx-auto mt-28 max-w-7xl px-4 md:mt-36 md:px-8">
+  <div class="text-center">
+    <p class="eyebrow">{% translate "Destinations" %}</p>
+    <h2 class="display mt-3 text-4xl md:text-5xl">{% translate "Two capitals, a thousand stories" %}</h2>
+  </div>
+  <div class="mt-12 grid gap-6 md:grid-cols-2">
+    {% for d in destinations %}
+      <a href="{{ d.get_absolute_url }}" class="group relative block aspect-[4/3] overflow-hidden md:aspect-[5/6]">
+        <img src="{{ d.image_url }}" alt="{{ d.t.name }}" loading="lazy" class="img-zoom h-full w-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-6 text-ivory md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.25em] text-ivory/70">
+            {% blocktranslate count n=d.n %}{{ n }} escape{% plural %}{{ n }} escapes{% endblocktranslate %}
+          </p>
+          <p class="display mt-2 text-5xl md:text-6xl">{{ d.t.name }}</p>
+          <p class="mt-3 max-w-md font-serif text-lg italic text-ivory/85">{{ d.t.tagline }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{# ---------- How it works ---------- #}
+<section class="mx-auto mt-28 max-w-5xl px-4 text-center md:mt-36 md:px-8">
+  <p class="eyebrow">{% translate "How it works" %}</p>
+  <h2 class="display mt-3 text-4xl md:text-5xl">{% translate "Three steps to your weekend" %}</h2>
+  <ol class="mt-14 grid gap-12 md:grid-cols-3">
+    <li>
+      <span class="font-serif text-6xl italic text-gold">1</span>
+      <p class="mt-3 font-serif text-2xl">{% translate "Choose your escape" %}</p>
+      <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Each sale lasts a few days only. When it's gone, it's gone." %}</p>
+    </li>
+    <li>
+      <span class="font-serif text-6xl italic text-gold">2</span>
+      <p class="mt-3 font-serif text-2xl">{% translate "Send your request" %}</p>
+      <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Pick your dates. Our concierge confirms availability within two hours." %}</p>
+    </li>
+    <li>
+      <span class="font-serif text-6xl italic text-gold">3</span>
+      <p class="mt-3 font-serif text-2xl">{% translate "Simply arrive" %}</p>
+      <p class="mt-2 text-sm leading-relaxed text-taupe">{% translate "Your extras are waiting in the room. All that's left is to enjoy." %}</p>
+    </li>
+  </ol>
+</section>
+
+{% include "partials/club.html" %}
+
+{% endblock %}

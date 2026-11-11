@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+staticfiles/
+.DS_Store
+# Note: static/css/app.css and locale/**/*.mo are committed on purpose,
+# so the server needs neither Tailwind nor gettext.

@@ -1,0 +1,28 @@
+{% load i18n escale %}
+<a href="{{ escape.get_absolute_url }}" class="group block">
+  <div class="relative aspect-[4/5] overflow-hidden bg-sand">
+    <img src="{{ escape.image_url }}" alt="{{ escape.t.hotel_name }}" loading="lazy"
+         class="img-zoom h-full w-full object-cover">
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/60 to-transparent"></div>
+    <span class="absolute left-4 top-4 bg-ivory px-3 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-wine">−{{ escape.discount }}%</span>
+    <span class="absolute right-4 top-4 bg-ink/70 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.15em] text-ivory backdrop-blur">
+      {% blocktranslate count days=escape.days_left %}{{ days }} day left{% plural %}{{ days }} days left{% endblocktranslate %}
+    </span>
+    <div class="absolute inset-x-4 bottom-4 text-ivory">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-ivory/85">{{ escape.destination.t.name }} · {{ escape.t.neighbourhood }}</p>
+    </div>
+  </div>
+  <div class="pt-5">
+    <div class="flex items-baseline justify-between gap-4">
+      <h3 class="font-serif text-2xl leading-tight">{{ escape.t.hotel_name }}</h3>
+      <span class="shrink-0 text-xs tracking-widest text-gold">{{ escape.stars|stars }}</span>
+    </div>
+    <p class="mt-1 text-sm italic text-taupe font-serif text-[17px]">{{ escape.t.title }}</p>
+    <div class="mt-4 flex items-baseline gap-3 border-t border-ink/10 pt-4">
+      <span class="text-[11px] uppercase tracking-[0.15em] text-taupe">{% translate "from" %}</span>
+      <span class="text-lg font-semibold">{{ escape.price|rub }}</span>
+      <span class="text-sm text-taupe line-through">{{ escape.original_price|rub }}</span>
+      <span class="ml-auto text-[11px] uppercase tracking-[0.15em] text-taupe">{% translate "/ night for two" %}</span>
+    </div>
+  </div>
+</a>

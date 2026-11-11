@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "All escapes" %} — Escale{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-7xl px-4 pt-14 md:px-8 md:pt-20">
+  <p class="eyebrow">{% translate "Private sales" %}</p>
+  <h1 class="display mt-3 text-5xl md:text-6xl">{% translate "All escapes" %}</h1>
+
+  <form method="get" class="mt-10 space-y-5 border-y border-ink/10 py-6">
+    <div class="flex flex-wrap gap-2">
+      <a href="?mood={{ mood }}&sort={{ sort }}" class="pill {% if not city %}pill-active{% endif %}">{% translate "All cities" %}</a>
+      {% for d in destinations %}
+        <a href="?city={{ d.slug }}&mood={{ mood }}&sort={{ sort }}" class="pill {% if city == d.slug %}pill-active{% endif %}">{{ d.t.name }}</a>
+      {% endfor %}
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <a href="?city={{ city }}&sort={{ sort }}" class="pill {% if not mood %}pill-active{% endif %}">{% translate "Any escape" %}</a>
+      {% for value, label in moods %}
+        <a href="?city={{ city }}&mood={{ value }}&sort={{ sort }}" class="pill {% if mood == value %}pill-active{% endif %}">{{ label }}</a>
+      {% endfor %}
+    </div>
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <input type="hidden" name="city" value="{{ city }}">
+      <input type="hidden" name="mood" value="{{ mood }}">
+      <input type="search" name="q" value="{{ q }}" placeholder="{% translate 'Hotel or neighbourhood…' %}"
+             class="w-full border-b border-ink/20 bg-transparent py-2 text-sm outline-none focus:border-ink sm:w-72">
+      <label class="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-taupe">
+        {% translate "Sort" %}
+        <select name="sort" onchange="this.form.submit()" class="border-b border-ink/20 bg-transparent py-2 text-sm normal-case tracking-normal text-ink outline-none">
+          <option value="" {% if not sort %}selected{% endif %}>{% translate "Our selection" %}</option>
+          <option value="price" {% if sort == "price" %}selected{% endif %}>{% translate "Price: low to high" %}</option>
+          <option value="ending" {% if sort == "ending" %}selected{% endif %}>{% translate "Ending soon" %}</option>
+        </select>
+      </label>
+    </div>
+  </form>
+
+  <p class="mt-8 text-sm text-taupe">
+    {% blocktranslate count n=escapes|length %}{{ n }} escape available{% plural %}{{ n }} escapes available{% endblocktranslate %}
+  </p>
+
+  <div class="mt-8 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+    {% for escape in escapes %}
+      {% include "partials/escape_card.html" %}
+    {% empty %}
+      <div class="col-span-full py-20 text-center">
+        <p class="font-serif text-3xl">{% translate "No escape matches… yet." %}</p>
+        <a href="{% url 'stays:list' %}" class="btn-outline mt-6">{% translate "See all escapes" %}</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

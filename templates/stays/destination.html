@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ destination.t.name }} — Escale{% endblock %}
+{% block description %}{{ destination.t.tagline }}{% endblock %}
+
+{% block content %}
+<section class="relative h-[55vh] max-h-[560px] min-h-[380px] overflow-hidden">
+  <img src="{{ destination.image_url }}" alt="{{ destination.t.name }}" class="h-full w-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-ink/10"></div>
+  <div class="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-12 text-ivory md:px-8 md:pb-16">
+    <p class="eyebrow !text-blush">{% translate "Weekend escapes in" %}</p>
+    <h1 class="display mt-3 text-6xl md:text-8xl">{{ destination.t.name }}</h1>
+    <p class="mt-4 max-w-xl font-serif text-xl italic text-ivory/85">{{ destination.t.tagline }}</p>
+  </div>
+</section>
+
+<section class="mx-auto mt-16 max-w-7xl px-4 md:px-8">
+  <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+    {% for escape in escapes %}
+      {% include "partials/escape_card.html" %}
+    {% empty %}
+      <p class="col-span-full py-16 text-center font-serif text-3xl">{% translate "New sales are coming soon." %}</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% if others %}
+<section class="mx-auto mt-28 max-w-7xl px-4 md:px-8">
+  <p class="eyebrow text-center">{% translate "Also loved by our members" %}</p>
+  <div class="mt-8 grid gap-6 {% if others|length > 1 %}md:grid-cols-2{% endif %}">
+    {% for d in others %}
+      <a href="{{ d.get_absolute_url }}" class="group relative block aspect-[21/9] overflow-hidden">
+        <img src="{{ d.image_url }}" alt="{{ d.t.name }}" loading="lazy" class="img-zoom h-full w-full object-cover">
+        <div class="absolute inset-0 bg-ink/40"></div>
+        <p class="display absolute inset-0 flex items-center justify-center text-5xl text-ivory md:text-6xl">{{ d.t.name }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% include "partials/club.html" %}
+{% endblock %}

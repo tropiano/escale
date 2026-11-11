@@ -1,0 +1,669 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-11 18:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: stays/forms.py:24
+#, python-format
+msgid "%(n)d night"
+msgid_plural "%(n)d nights"
+msgstr[0] "%(n)d ночь"
+msgstr[1] "%(n)d ночи"
+msgstr[2] "%(n)d ночей"
+msgstr[3] "%(n)d ночей"
+
+#: stays/forms.py:27
+#, python-format
+msgid "%(n)d guest"
+msgid_plural "%(n)d guests"
+msgstr[0] "%(n)d гость"
+msgstr[1] "%(n)d гостя"
+msgstr[2] "%(n)d гостей"
+msgstr[3] "%(n)d гостей"
+
+#: stays/forms.py:30
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: stays/forms.py:33
+msgid "A special touch? (optional)"
+msgstr "Особые пожелания (необязательно)"
+
+#: stays/forms.py:34
+msgid "An anniversary, a surprise, a late check-out…"
+msgstr "Годовщина, сюрприз, поздний выезд…"
+
+#: stays/forms.py:39
+msgid "Please choose a date in the future."
+msgstr "Пожалуйста, выберите дату в будущем."
+
+#: stays/forms.py:46
+#, python-format
+msgid "This escape starts at %(n)d night."
+msgid_plural "This escape starts at %(n)d nights."
+msgstr[0] "Минимальное проживание — %(n)d ночь."
+msgstr[1] "Минимальное проживание — %(n)d ночи."
+msgstr[2] "Минимальное проживание — %(n)d ночей."
+msgstr[3] "Минимальное проживание — %(n)d ночей."
+
+#: stays/models.py:32
+msgid "name (RU)"
+msgstr "название (RU)"
+
+#: stays/models.py:33
+msgid "name (EN)"
+msgstr "название (EN)"
+
+#: stays/models.py:35
+msgid "tagline (RU)"
+msgstr "подзаголовок (RU)"
+
+#: stays/models.py:36
+msgid "tagline (EN)"
+msgstr "подзаголовок (EN)"
+
+#: stays/models.py:54
+msgid "For two"
+msgstr "Для двоих"
+
+#: stays/models.py:55
+msgid "With friends"
+msgstr "С подругами"
+
+#: stays/models.py:56
+msgid "Spa & wellness"
+msgstr "Спа и релакс"
+
+#: stays/models.py:57
+msgid "Gastronomy"
+msgstr "Гастрономия"
+
+#: stays/models.py:60
+msgid "hotel name (RU)"
+msgstr "название отеля (RU)"
+
+#: stays/models.py:61
+msgid "hotel name (EN)"
+msgstr "название отеля (EN)"
+
+#: stays/models.py:62
+msgid "headline (RU)"
+msgstr "заголовок (RU)"
+
+#: stays/models.py:63
+msgid "headline (EN)"
+msgstr "заголовок (EN)"
+
+#: stays/models.py:65
+msgid "neighbourhood (RU)"
+msgstr "район (RU)"
+
+#: stays/models.py:66
+msgid "neighbourhood (EN)"
+msgstr "район (EN)"
+
+#: stays/models.py:69
+msgid "summary (RU)"
+msgstr "кратко (RU)"
+
+#: stays/models.py:70
+msgid "summary (EN)"
+msgstr "кратко (EN)"
+
+#: stays/models.py:71
+msgid "description (RU)"
+msgstr "описание (RU)"
+
+#: stays/models.py:72
+msgid "description (EN)"
+msgstr "описание (EN)"
+
+#: stays/models.py:73
+msgid "inclusions (RU)"
+msgstr "что включено (RU)"
+
+#: stays/models.py:73 stays/models.py:74
+msgid "One perk per line"
+msgstr "Один пункт на строку"
+
+#: stays/models.py:74
+msgid "inclusions (EN)"
+msgstr "что включено (EN)"
+
+#: stays/models.py:76
+msgid "One image URL per line"
+msgstr "Одна ссылка на фото на строку"
+
+#: stays/models.py:77
+msgid "member price, ₽ per night for two"
+msgstr "цена для участниц, ₽ за ночь для двоих"
+
+#: stays/models.py:78
+msgid "public price, ₽ per night"
+msgstr "публичная цена, ₽ за ночь"
+
+#: stays/models.py:81
+msgid "sale closes at"
+msgstr "продажа закрывается"
+
+#: stays/models.py:124
+msgid "New"
+msgstr "Новая"
+
+#: stays/models.py:125
+msgid "Confirmed"
+msgstr "Подтверждена"
+
+#: stays/models.py:126
+msgid "Cancelled"
+msgstr "Отменена"
+
+#: stays/models.py:129
+msgid "name"
+msgstr "имя"
+
+#: stays/models.py:130
+msgid "email"
+msgstr "email"
+
+#: stays/models.py:131
+msgid "phone"
+msgstr "телефон"
+
+#: stays/models.py:132
+msgid "arrival"
+msgstr "заезд"
+
+#: stays/models.py:133
+msgid "nights"
+msgstr "ночей"
+
+#: stays/models.py:134
+msgid "guests"
+msgstr "гостей"
+
+#: stays/models.py:135
+msgid "message"
+msgstr "сообщение"
+
+#: stays/views.py:100
+msgid "Welcome to the club. Our next private sales will land in your inbox."
+msgstr "Добро пожаловать в клуб! Новые закрытые продажи придут вам на почту."
+
+#: stays/views.py:102
+msgid "Please enter a valid email address."
+msgstr "Пожалуйста, укажите корректный email."
+
+#: templates/base.html:6
+msgid "Romantic city escapes, privately priced"
+msgstr "Романтические выходные в городе по закрытым ценам"
+
+#: templates/base.html:7
+msgid ""
+"Members-only sales on the most romantic boutique hotels in Moscow and St "
+"Petersburg."
+msgstr ""
+"Закрытые продажи самых романтичных бутик-отелей Москвы и Санкт-Петербурга."
+
+#: templates/base.html:20
+#, python-format
+msgid "Members-only rates · up to −45%% · free cancellation on most stays"
+msgstr ""
+"Цены только для участниц · до −45%% · бесплатная отмена для большинства "
+"предложений"
+
+#: templates/base.html:29 templates/base.html:51 templates/base.html:85
+#: templates/stays/escape_list.html:4 templates/stays/escape_list.html:9
+msgid "All escapes"
+msgstr "Все предложения"
+
+#: templates/base.html:33 templates/base.html:53 templates/base.html:91
+#: templates/stays/about.html:4 templates/stays/about.html:8
+msgid "Our story"
+msgstr "О нас"
+
+#: templates/base.html:42 templates/base.html:55
+msgid "Join the club"
+msgstr "Вступить в клуб"
+
+#: templates/base.html:46
+msgid "Menu"
+msgstr "Меню"
+
+#: templates/base.html:78
+msgid ""
+"Hand-picked boutique hotels for romantic city weekends with your partner or "
+"your best friends. Every stay tested by our team, every rate reserved for "
+"members."
+msgstr ""
+"Отобранные вручную бутик-отели для романтических выходных с любимым или "
+"лучшими подругами. Каждый отель проверен нашей командой, каждая цена — "
+"только для участниц клуба."
+
+#: templates/base.html:82 templates/stays/home.html:103
+msgid "Destinations"
+msgstr "Направления"
+
+#: templates/base.html:89
+msgid "Escale"
+msgstr "Escale"
+
+#: templates/base.html:92
+msgid "Concierge"
+msgstr "Консьерж"
+
+#: templates/base.html:93
+msgid "Every day, 9:00–21:00 (Moscow time)"
+msgstr "Ежедневно, 9:00–21:00 (мск)"
+
+#: templates/base.html:100
+msgid "Demo site · hotels and prices are fictional"
+msgstr "Демо-сайт · отели и цены вымышлены"
+
+#: templates/partials/club.html:6
+msgid "The Escale club"
+msgstr "Клуб Escale"
+
+#: templates/partials/club.html:7
+msgid "Be the first to know"
+msgstr "Узнавайте первой"
+
+#: templates/partials/club.html:9
+msgid ""
+"New private sales every Thursday at 10:00. Join for free and receive them "
+"before anyone else."
+msgstr ""
+"Новые закрытые продажи — каждый четверг в 10:00. Вступайте бесплатно и "
+"получайте их раньше всех."
+
+#: templates/partials/club.html:14
+msgid "Your email address"
+msgstr "Ваш email"
+
+#: templates/partials/club.html:16
+msgid "Join for free"
+msgstr "Вступить бесплатно"
+
+#: templates/partials/club.html:18
+msgid "No spam. Unsubscribe in one click."
+msgstr "Без спама. Отписаться можно в один клик."
+
+#: templates/partials/escape_card.html:9
+#, python-format
+msgid "%(days)s day left"
+msgid_plural "%(days)s days left"
+msgstr[0] "Остался %(days)s день"
+msgstr[1] "Осталось %(days)s дня"
+msgstr[2] "Осталось %(days)s дней"
+msgstr[3] "Осталось %(days)s дней"
+
+#: templates/partials/escape_card.html:22
+#: templates/stays/escape_detail.html:62
+msgid "from"
+msgstr "от"
+
+#: templates/partials/escape_card.html:25
+#: templates/stays/escape_detail.html:102
+msgid "/ night for two"
+msgstr "/ ночь для двоих"
+
+#: templates/stays/about.html:9
+msgid "The art of the"
+msgstr "Искусство"
+
+#: templates/stays/about.html:9
+msgid "city escape"
+msgstr "городских выходных"
+
+#: templates/stays/about.html:11
+msgid ""
+"Escale was born from a simple idea: the most beautiful weekends are often "
+"just a train ride away. A suite above the Neva, breakfast at Patriarch's "
+"Ponds, a spa evening with your best friend — no long-haul flight needed."
+msgstr ""
+"Escale родился из простой идеи: самые красивые выходные часто совсем рядом —"
+" на «Сапсане». Сьют с видом на Неву, завтрак у Патриарших, вечер в спа с "
+"лучшей подругой — и никаких долгих перелётов."
+
+#: templates/stays/about.html:23
+msgid "Curated, never crowded"
+msgstr "Только избранное"
+
+#: templates/stays/about.html:24
+msgid ""
+"We select only a handful of hotels each season. Each one is visited "
+"incognito by our team, and we only keep the addresses we would recommend to "
+"our own friends."
+msgstr ""
+"Каждый сезон мы выбираем всего несколько отелей. Наша команда инкогнито "
+"проверяет каждый из них, и мы оставляем только те адреса, которые "
+"посоветовали бы своим подругам."
+
+#: templates/stays/about.html:27
+msgid "Rates you won't find elsewhere"
+msgstr "Цены, которых нет больше нигде"
+
+#: templates/stays/about.html:28
+msgid ""
+"We negotiate short private sales directly with hotels, with extras included:"
+" champagne, upgrades, late check-out. Members get them first."
+msgstr ""
+"Мы договариваемся с отелями напрямую о коротких закрытых продажах с "
+"приятными бонусами: шампанское, повышение категории, поздний выезд. "
+"Участницы клуба узнают о них первыми."
+
+#: templates/stays/booking_done.html:4 templates/stays/booking_done.html:9
+msgid "Request received"
+msgstr "Заявка получена"
+
+#: templates/stays/booking_done.html:10
+#, python-format
+msgid "Thank you, %(name)s"
+msgstr "Спасибо, %(name)s"
+
+#: templates/stays/booking_done.html:12
+#, python-format
+msgid ""
+"Our concierge is checking availability at %(hotel)s and will write to "
+"%(email)s within two hours."
+msgstr ""
+"Наш консьерж проверяет наличие мест в отеле «%(hotel)s» и напишет вам на "
+"%(email)s в течение двух часов."
+
+#: templates/stays/booking_done.html:24
+msgid "Arrival"
+msgstr "Заезд"
+
+#: templates/stays/booking_done.html:25
+msgid "Stay"
+msgstr "Проживание"
+
+#: templates/stays/booking_done.html:26
+#, python-format
+msgid "%(n)s night"
+msgid_plural "%(n)s nights"
+msgstr[0] "%(n)s ночь"
+msgstr[1] "%(n)s ночи"
+msgstr[2] "%(n)s ночей"
+msgstr[3] "%(n)s ночей"
+
+#: templates/stays/booking_done.html:26
+#, python-format
+msgid "%(n)s guest"
+msgid_plural "%(n)s guests"
+msgstr[0] "%(n)s гость"
+msgstr[1] "%(n)s гостя"
+msgstr[2] "%(n)s гостей"
+msgstr[3] "%(n)s гостей"
+
+#: templates/stays/booking_done.html:27
+msgid "Estimated total"
+msgstr "Ориентировочная сумма"
+
+#: templates/stays/booking_done.html:31
+msgid "Keep dreaming"
+msgstr "Продолжить мечтать"
+
+#: templates/stays/destination.html:12
+msgid "Weekend escapes in"
+msgstr "Городские выходные"
+
+#: templates/stays/destination.html:23
+msgid "New sales are coming soon."
+msgstr "Новые продажи скоро появятся."
+
+#: templates/stays/destination.html:30
+msgid "Also loved by our members"
+msgstr "Участницы также любят"
+
+#: templates/stays/escape_detail.html:34
+msgid "guest rating"
+msgstr "оценка гостей"
+
+#: templates/stays/escape_detail.html:43
+msgid "Included in your escape"
+msgstr "Что включено"
+
+#: templates/stays/escape_detail.html:52
+msgid "Check-in / out"
+msgstr "Заезд / выезд"
+
+#: templates/stays/escape_detail.html:52
+msgid "From 15:00 / until 12:00"
+msgstr "С 15:00 / до 12:00"
+
+#: templates/stays/escape_detail.html:53
+msgid "Cancellation"
+msgstr "Отмена"
+
+#: templates/stays/escape_detail.html:53
+msgid "Free up to 72 hours before arrival"
+msgstr "Бесплатно за 72 часа до заезда"
+
+#: templates/stays/escape_detail.html:54
+msgid "Payment"
+msgstr "Оплата"
+
+#: templates/stays/escape_detail.html:54
+msgid "At the hotel. Mir and all major cards accepted"
+msgstr "В отеле. Принимаются карты «Мир» и другие"
+
+#: templates/stays/escape_detail.html:66
+msgid "per night for two, taxes included"
+msgstr "за ночь для двоих, налоги включены"
+
+#: templates/stays/escape_detail.html:70
+#, python-format
+msgid "Sale ends %(date)s"
+msgstr "Продажа до %(date)s"
+
+#: templates/stays/escape_detail.html:72
+msgid "This sale has ended"
+msgstr "Продажа завершена"
+
+#: templates/stays/escape_detail.html:89
+msgid "Request this escape"
+msgstr "Отправить заявку"
+
+#: templates/stays/escape_detail.html:90
+msgid "No payment now. Our concierge confirms within 2 hours."
+msgstr "Без предоплаты. Консьерж подтвердит бронь в течение 2 часов."
+
+#: templates/stays/escape_detail.html:104
+msgid "Book"
+msgstr "Забронировать"
+
+#: templates/stays/escape_detail.html:110
+msgid "You may also love"
+msgstr "Вам также понравится"
+
+#: templates/stays/escape_list.html:8
+msgid "Private sales"
+msgstr "Закрытые продажи"
+
+#: templates/stays/escape_list.html:13 templates/stays/home.html:29
+msgid "All cities"
+msgstr "Все города"
+
+#: templates/stays/escape_list.html:19 templates/stays/home.html:36
+msgid "Any escape"
+msgstr "Любой формат"
+
+#: templates/stays/escape_list.html:27
+msgid "Hotel or neighbourhood…"
+msgstr "Отель или район…"
+
+#: templates/stays/escape_list.html:30
+msgid "Sort"
+msgstr "Сортировка"
+
+#: templates/stays/escape_list.html:32
+msgid "Our selection"
+msgstr "Наш выбор"
+
+#: templates/stays/escape_list.html:33
+msgid "Price: low to high"
+msgstr "Сначала дешевле"
+
+#: templates/stays/escape_list.html:34
+msgid "Ending soon"
+msgstr "Скоро закончатся"
+
+#: templates/stays/escape_list.html:41
+#, python-format
+msgid "%(n)s escape available"
+msgid_plural "%(n)s escapes available"
+msgstr[0] "Доступно %(n)s предложение"
+msgstr[1] "Доступно %(n)s предложения"
+msgstr[2] "Доступно %(n)s предложений"
+msgstr[3] "Доступно %(n)s предложений"
+
+#: templates/stays/escape_list.html:49
+msgid "No escape matches… yet."
+msgstr "Пока ничего не найдено…"
+
+#: templates/stays/escape_list.html:50 templates/stays/home.html:68
+msgid "See all escapes"
+msgstr "Все предложения"
+
+#: templates/stays/home.html:13
+msgid "Private sales · Moscow & St Petersburg"
+msgstr "Закрытые продажи · Москва и Петербург"
+
+#: templates/stays/home.html:15
+msgid "Romantic city weekends,"
+msgstr "Романтические выходные"
+
+#: templates/stays/home.html:15
+msgid "privately priced"
+msgstr "по закрытым ценам"
+
+#: templates/stays/home.html:18
+#, python-format
+msgid ""
+"Boutique hotels we have tested ourselves, for two or with your best friends."
+" Up to 45%% off public rates, members only."
+msgstr ""
+"Бутик-отели, которые мы проверили сами, — для двоих или с лучшими подругами."
+" До 45%% дешевле публичных цен, только для участниц клуба."
+
+#: templates/stays/home.html:27
+msgid "Where"
+msgstr "Куда"
+
+#: templates/stays/home.html:34
+msgid "With whom"
+msgstr "С кем"
+
+#: templates/stays/home.html:40
+msgid "Find my escape"
+msgstr "Найти выходные"
+
+#: templates/stays/home.html:48
+msgid "Tested incognito"
+msgstr "Проверено инкогнито"
+
+#: templates/stays/home.html:49
+msgid "Our team sleeps in every hotel before it joins the collection."
+msgstr ""
+"Наша команда ночует в каждом отеле, прежде чем добавить его в коллекцию."
+
+#: templates/stays/home.html:52
+msgid "Members-only rates"
+msgstr "Цены только для своих"
+
+#: templates/stays/home.html:53
+msgid "Negotiated directly with the hotels, never shown publicly."
+msgstr "Согласованы напрямую с отелями и нигде не публикуются."
+
+#: templates/stays/home.html:56
+msgid "Little extras, always"
+msgstr "Приятные бонусы — всегда"
+
+#: templates/stays/home.html:57
+msgid "Champagne, late check-out, an upgrade — every stay has its touch."
+msgstr ""
+"Шампанское, поздний выезд, повышение категории — в каждом предложении есть "
+"особый штрих."
+
+#: templates/stays/home.html:65
+msgid "This week's private sales"
+msgstr "Закрытые продажи недели"
+
+#: templates/stays/home.html:66
+msgid "Escapes of the moment"
+msgstr "Предложения момента"
+
+#: templates/stays/home.html:79
+msgid "Choose your mood"
+msgstr "Выберите настроение"
+
+#: templates/stays/home.html:80
+msgid "Who are you escaping with?"
+msgstr "С кем вы едете?"
+
+#: templates/stays/home.html:92
+msgid "Discover"
+msgstr "Смотреть"
+
+#: templates/stays/home.html:104
+msgid "Two capitals, a thousand stories"
+msgstr "Две столицы, тысяча историй"
+
+#: templates/stays/home.html:113
+#, python-format
+msgid "%(n)s escape"
+msgid_plural "%(n)s escapes"
+msgstr[0] "%(n)s предложение"
+msgstr[1] "%(n)s предложения"
+msgstr[2] "%(n)s предложений"
+msgstr[3] "%(n)s предложений"
+
+#: templates/stays/home.html:125
+msgid "How it works"
+msgstr "Как это работает"
+
+#: templates/stays/home.html:126
+msgid "Three steps to your weekend"
+msgstr "Три шага к идеальным выходным"
+
+#: templates/stays/home.html:130
+msgid "Choose your escape"
+msgstr "Выберите предложение"
+
+#: templates/stays/home.html:131
+msgid "Each sale lasts a few days only. When it's gone, it's gone."
+msgstr ""
+"Каждая продажа длится всего несколько дней. Не успели — не страшно, будут "
+"новые."
+
+#: templates/stays/home.html:135
+msgid "Send your request"
+msgstr "Отправьте заявку"
+
+#: templates/stays/home.html:136
+msgid "Pick your dates. Our concierge confirms availability within two hours."
+msgstr "Выберите даты. Консьерж подтвердит наличие мест в течение двух часов."
+
+#: templates/stays/home.html:140
+msgid "Simply arrive"
+msgstr "Просто приезжайте"
+
+#: templates/stays/home.html:141
+msgid "Your extras are waiting in the room. All that's left is to enjoy."
+msgstr "Бонусы уже ждут в номере. Остаётся только наслаждаться."
