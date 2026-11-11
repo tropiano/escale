@@ -76,7 +76,7 @@ The deployment is described in `appliku.yml`:
 - **Build:** Python 3.13 image, app listens on port 8000.
 - **Database:** a PostgreSQL 17 datastore called `db`. Its connection string is passed to the app as `DATABASE_URL`.
 - **Environment:** `ALLOWED_HOSTS` is filled from the app's domains, `DEBUG=False`, and `SECRET_KEY` must be set by hand.
-- **Processes:** `web` runs `bin/web.sh` (collects static files, starts Gunicorn). `release` runs `bin/release.sh` once after every deploy (applies migrations, loads the demo hotels if the database is empty).
+- **Processes:** `web` runs `bin/web.sh` (starts Gunicorn; Appliku collects static files during the build). `release` runs `bin/release.sh` once after every deploy (applies migrations, loads the demo hotels if the database is empty).
 
 First deploy:
 
